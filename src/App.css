@@ -19,6 +19,9 @@ a{
   color: white !important;
   padding: 2px;
 }
+.card-header{
+  text-align: right;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

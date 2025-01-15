@@ -1,0 +1,65 @@
+import axios from "axios"
+import { DELETE_USER, FAIL_REQUEST, GET_USER_LIST, MAKE_REQUEST } from "./ActionType"
+import { toast } from "react-toastify"
+
+
+//here we make the functions that return the action type
+export const makeRequest = () => {
+    return{
+        type:MAKE_REQUEST
+    }
+}
+
+//when the request fails we need to pass in the pay load as the err msg
+export const failRequest = (err) => {
+    return{
+        type:FAIL_REQUEST,
+        payload: err
+    }
+}
+
+//here the table data request is made hence the payload is data 
+export const getUserList = (data) => {
+    return{
+        type:GET_USER_LIST,
+        payload: data
+    }
+}
+
+//when we wan to delete a user
+export const deleteUser=()=>{
+    return{
+        type:DELETE_USER
+    }
+}
+
+//we need a dispatch function too
+//we create a async funtion for api calls hence we use thunk
+//the below is a dispatch function
+
+export const FetchUserList = () => {
+    return(dispatch) => {
+        dispatch(makeRequest());
+        axios.get('http://localhost:8000/user').then(res => {
+            const userlist= res.data;
+            dispatch(getUserList(userlist));
+        }).catch(err => {
+            dispatch(failRequest(err.message))
+        })
+    }
+}
+
+export const Removeuser=(code)=>{
+    return (dispatch)=>{
+      dispatch(makeRequest());
+      //setTimeout(() => {
+        axios.delete('http://localhost:8000/user/'+code).then(res=>{
+            dispatch(deleteUser());
+          }).catch(err=>{
+            dispatch(failRequest(err.message))
+          })
+     // }, 2000);
+     
+    }
+}
+

@@ -6,4 +6,7 @@ export const FAIL_REQUEST='FAIL_REQUEST'
 //now we need the table data 
 export const GET_USER_LIST='GET_USER_LIST'
 
+//now if we want to delete a user
+export const DELETE_USER='DELETE_USER'
+
 //now once this action types are defined we need to return them inside of the action.js
