@@ -1,0 +1,11 @@
+{
+    "user":[
+        {
+            "id": 1,
+            "name": "Admin User",
+            "role": "admin",
+            "email": "admin@in.com",
+            "phone": "1234567890"
+        }
+    ]
+}
