@@ -1,4 +1,4 @@
-import { DELETE_USER, FAIL_REQUEST, GET_USER_LIST, MAKE_REQUEST } from "./ActionType"
+import { ADD_USER, DELETE_USER, FAIL_REQUEST, GET_USER_LIST, MAKE_REQUEST } from "./ActionType"
 
 const initialstate = {
     loading: true,
@@ -33,6 +33,11 @@ export const Reducer = (state=initialstate, action) => {
                     ...state,
                     loading: false,
                     //userlist: state.userlist.filter(user => user.id !== action.payload),  // Remove the deleted user from userlist
+                }
+            case ADD_USER:
+                return{
+                    ...state,
+                    loading:false
                 }
             
         default: return state  

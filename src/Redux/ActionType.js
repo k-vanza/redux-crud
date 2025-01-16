@@ -9,4 +9,7 @@ export const GET_USER_LIST='GET_USER_LIST'
 //now if we want to delete a user
 export const DELETE_USER='DELETE_USER'
 
+//now to add a user
+export const ADD_USER='ADD_USER'
+
 //now once this action types are defined we need to return them inside of the action.js

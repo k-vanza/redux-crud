@@ -1,5 +1,5 @@
 import axios from "axios"
-import { DELETE_USER, FAIL_REQUEST, GET_USER_LIST, MAKE_REQUEST } from "./ActionType"
+import { ADD_USER, DELETE_USER, FAIL_REQUEST, GET_USER_LIST, MAKE_REQUEST } from "./ActionType"
 import { toast } from "react-toastify"
 
 
@@ -32,6 +32,12 @@ export const deleteUser=()=>{
         type:DELETE_USER
     }
 }
+//adding a user
+export const addUser=()=>{
+    return{
+        type:ADD_USER
+    }
+}
 
 //we need a dispatch function too
 //we create a async funtion for api calls hence we use thunk
@@ -60,6 +66,18 @@ export const Removeuser=(code)=>{
           })
      // }, 2000);
      
+    }
+}
+
+export const FunctionAddUser = (data) => {
+    return(dispatch)=>{
+        dispatch(makeRequest())
+        axios.post('http://localhost:8000/user',data).then(res => {
+            dispatch(addUser());
+            toast.success(`User added Successfully`)
+        }).catch(err => {
+            dispatch(failRequest(err.message))
+        })
     }
 }
 
