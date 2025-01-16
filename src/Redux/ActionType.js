@@ -12,4 +12,13 @@ export const DELETE_USER='DELETE_USER'
 //now to add a user
 export const ADD_USER='ADD_USER'
 
+//to fetch a user 
+export const GET_USER_OBJ='GET_USER_OBJ'
+
+//in order to update we need to fetch the user data first
+//edit the user
+export const UPDATE_USER='UPDATE_USER'
+
+
+
 //now once this action types are defined we need to return them inside of the action.js
